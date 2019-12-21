@@ -2,7 +2,8 @@ package data;
 
 import java.util.ArrayList;
 
-import vo.UserVo;
+import vo.BoardVO;
+import vo.UserVO;
 
 public class Database {
 
@@ -20,12 +21,21 @@ public class Database {
 	
 	
 	
-	public ArrayList<UserVo> tb_user = new ArrayList<>();
+	public ArrayList<UserVO> tb_user = new ArrayList<>();
 	{
-		UserVo user = new UserVo();
+		UserVO user = new UserVO();
 		user.setId("admin");
 		user.setPassword("admin");
 		user.setName("관리자");
 		tb_user.add(user);
+	}
+	
+	public ArrayList<BoardVO> message_board = new ArrayList<>();
+	{
+		BoardVO user = new BoardVO();
+		user.setId("admin");
+		user.setPassword("admin");
+		user.setName("관리자");
+		message_board.add(user);
 	}
 }

@@ -34,6 +34,8 @@ public class Controller {
 			System.out.println("1.회원가입");
 			System.out.println("2.로그인");
 			System.out.println("3.회원목록");
+			System.out.println("4.게시글 입력");
+			System.out.println("5.게시글 출력");
 			System.out.println("0.프로그램 종료");
 			System.out.println("---------------------------");
 			System.out.println("메뉴에 해당하는 번호 입력>");
@@ -50,6 +52,13 @@ public class Controller {
 			case 3: //회원목록
 				userService.userList();
 				break;
+			case 4: //게시글 입력
+				userService.boardinput();
+				break;
+			case 5: //게시글 출력
+				userService.userList();
+				break;
+				
 			case 0 : //프로그램 종료
 				System.out.println("프로그램 종료");
 				break;		

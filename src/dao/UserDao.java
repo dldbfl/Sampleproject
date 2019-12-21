@@ -3,17 +3,17 @@ package dao;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import vo.UserVo;
+import vo.UserVO;
 
 public interface UserDao {
 	
-	UserVo selectUser(String key, String value);
+	UserVO selectUser(String key, String value);
 
-	void insertUser(UserVo user);
+	void insertUser(UserVO user);
 
-	UserVo selectUser(HashMap<String, String> param);
+	UserVO selectUser(HashMap<String, String> param);
 
-	ArrayList<UserVo> selectUserList();
+	ArrayList<UserVO> selectUserList();
 	
 	
 

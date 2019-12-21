@@ -1,6 +1,6 @@
 package vo;
 
-public class UserVO {
+public class BoardVO {
 			//value object 약자
 	private String id;
 	private String password;

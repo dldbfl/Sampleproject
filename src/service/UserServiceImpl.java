@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import vo.UserVo;
+import vo.BoardVO;
+import vo.UserVO;
+import dao.BoardDao;
 import dao.UserDao;
-import dao.UserDaolmpl;
+import dao.UserDaoImpl;
 import data.Session;
 
 public class UserServiceImpl implements UserService {
@@ -22,7 +24,7 @@ public class UserServiceImpl implements UserService {
 		return instance;
 	}
 	
-	UserDao userDao = UserDaolmpl.getInstance();
+	UserDao userDao = UserDaoImpl.getInstance();
 	
 	@Override
 	public void join() {
@@ -36,13 +38,13 @@ public class UserServiceImpl implements UserService {
 		System.out.println("이름 : ");
 		String name = s.nextLine();
 		
-		UserVo user = new UserVo();
+		UserVO user = new UserVO();
 		
 		user.setId(id);
 		user.setPassword(password);
 		user.setName(name);
 		
-		UserVo userCheck = userDao.selectUser("ID", user.getId());
+		UserVO userCheck = userDao.selectUser("ID", user.getId());
 		
 		if(userCheck == null){
 			userDao.insertUser(user);
@@ -66,7 +68,7 @@ public class UserServiceImpl implements UserService {
 		param.put("ID", id);
 		param.put("PASSWORD", password);
 		
-		UserVo user = userDao.selectUser(param);
+		UserVO user = userDao.selectUser(param);
 		
 		if(user == null){
 			System.out.println("아이디 혹은 비밀번호를 잘못입력하셨습니다.");
@@ -80,18 +82,35 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void userList() {
-		ArrayList<UserVo> userList = userDao.selectUserList();
+		ArrayList<UserVO> userList = userDao.selectUserList();
 				
 		System.out.println("------------------------");
 		System.out.println("번호\t아이디\t이름");
 		System.out.println("------------------------");
 		for(int i = userList.size() - 1; 0 <= i ; i -- ){
-			UserVo user = userList.get(i);
+			UserVO user = userList.get(i);
 			System.out.println(i + 1 + "\t"+user.getId()
 					+ "\t" + user.getName());
 		}
 		System.out.println("------------------------");
 		
+	}
+	
+	public void boardinput() {
+		//로그인
+		Scanner s = new Scanner(System.in);
+		
+		ArrayList<UserVO> userList = BoardDao.selectUserList();
+		
+		System.out.println("------------------------");
+		System.out.println("게시글 번호\t게시글제목\t");
+		System.out.println("------------------------");
+		for(int i = userList.size() - 1; 0 <= i ; i -- ){
+			BoardVO user = userList.get(i);
+			System.out.println(i + 1 + "\t"+user.get(i)
+					+ "\t" + user.get(i+1));
+		}
+		System.out.println("------------------------");
 	}
 
 }

@@ -6,18 +6,18 @@ import java.util.Set;
 
 import javax.jws.soap.SOAPBinding.Use;
 
-import vo.UserVo;
+import vo.UserVO;
 import data.Database;
 
-public class UserDaolmpl implements UserDao {
+public class UserDaoImpl implements UserDao {
 		//Impl은임플리먼트의 약자
-		private static UserDaolmpl instance;
+		private static UserDaoImpl instance;
 		
-		private UserDaolmpl(){}
+		private UserDaoImpl(){}
 		
-		public static UserDaolmpl getInstance() {
+		public static UserDaoImpl getInstance() {
 			if(instance== null){
-				instance = new UserDaolmpl();
+				instance = new UserDaoImpl();
 			}
 			return instance;
 		}
@@ -25,9 +25,9 @@ public class UserDaolmpl implements UserDao {
 		Database database = Database.getInstance();
 		
 		@Override
-		public UserVo selectUser(String key, String value){
+		public UserVO selectUser(String key, String value){
 			for(int i = 0; i < database.tb_user.size();i++){
-				UserVo user = database.tb_user.get(i);
+				UserVO user = database.tb_user.get(i);
 				
 				if(key.equals("ID")){
 					if(user.getId().equals(value)){
@@ -45,15 +45,15 @@ public class UserDaolmpl implements UserDao {
 		}
 
 		@Override
-		public void insertUser(UserVo user) {
+		public void insertUser(UserVO user) {
 			database.tb_user.add(user);
 		}
 
 		@Override
-		public UserVo selectUser(HashMap<String, String> param) {
-			UserVo rtnUser = null;
+		public UserVO selectUser(HashMap<String, String> param) {
+			UserVO rtnUser = null;
 			for(int i = 0 ; i < database.tb_user.size();i++){
-				UserVo user = database.tb_user.get(i);
+				UserVO user = database.tb_user.get(i);
 				Boolean flag = true;
 				Set<String> keys = param.keySet();
 				for(String key : keys){
@@ -70,7 +70,7 @@ public class UserDaolmpl implements UserDao {
 		}
 
 		@Override
-		public ArrayList<UserVo> selectUserList() {
+		public ArrayList<UserVO> selectUserList() {
 			return database.tb_user;
 		}
 }

@@ -7,4 +7,6 @@ public interface UserService {
 	
 	void userList(); // 회원 전체 목록 출력
 
+	void boardinput(); // 게시글 입력
+
 }
