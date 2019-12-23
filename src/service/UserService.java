@@ -1,12 +1,16 @@
 package service;
 
-public interface UserService {
-	void join(); // 회원가입
+public interface UserService { //유저와 관련된 데이터
 	
-	void login(); // 로그인
+	//추상메서드들
+	void join(); //회원가입
 	
-	void userList(); // 회원 전체 목록 출력
-
-	void boardinput(); // 게시글 입력
+	void login(); //로그인
+	
+	void userList(); //회원 전체 목록 출력
+	
+	void write(); //글쓰기
+	
+	void boardList(); //글목록
 
 }

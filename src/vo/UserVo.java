@@ -1,10 +1,11 @@
 package vo;
 
-public class UserVO {
-			//value object 약자
+public class UserVO { //변수와 게터 세터로 만든다. 데이터를 받고 넘겨주는 역할.
+
 	private String id;
 	private String password;
 	private String name;
+	
 	
 	public String getId() {
 		return id;
@@ -24,5 +25,7 @@ public class UserVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
+	
+	
 }

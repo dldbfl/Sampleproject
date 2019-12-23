@@ -1,5 +1,5 @@
 package dao;
-	//데이터 엑세스 오브젝트의 약자
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -7,7 +7,7 @@ import vo.UserVO;
 
 public interface UserDao {
 	
-	UserVO selectUser(String key, String value);
+	UserVO selectUser(String key, String value); //id 중복 체크
 
 	void insertUser(UserVO user);
 
